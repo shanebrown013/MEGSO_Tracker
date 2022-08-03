@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reward name:</strong>
+  <%= @rewards_approval_list.reward_name %>
+</p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @rewards_approval_list.UID %>
+</p>
+
+<%= link_to 'Edit', edit_rewards_approval_list_path(@rewards_approval_list) %> |
+<%= link_to 'Back', rewards_approval_lists_path %>

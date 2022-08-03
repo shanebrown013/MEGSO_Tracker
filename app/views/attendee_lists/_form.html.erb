@@ -1,0 +1,27 @@
+<%= form_with(model: attendee_list) do |form| %>
+  <% if attendee_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attendee_list.errors.count, "error") %> prohibited this attendee_list from being saved:</h2>
+
+      <ul>
+        <% attendee_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :attendee_list_id, "Attendee List ID" %>
+    <%= form.text_field :attendee_list_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :UID, "UID" %>
+    <%= form.text_field :UID %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

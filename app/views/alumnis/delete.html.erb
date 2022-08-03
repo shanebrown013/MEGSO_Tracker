@@ -1,0 +1,68 @@
+<% if current_user.is_admin == true %>
+  <div class="row">
+    <div class = "col">
+    </div>
+    <div class = "col-3">
+      <h1>Delete Alumni</h1>
+    </div>
+    <div class = "col">
+    </div>
+  </div>
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class= "card col-4">
+      <div class="card-header">
+        <p>
+          <strong>LinkedIn URL:</strong>
+        </p>
+          <%= link_to @alumni.LinkedIn, @alumni.LinkedIn %>
+      </div>
+      <div class="card-body">
+        <p>
+          <strong>Graduation Year:</strong>
+          <%= @alumni.alumni_grad_year %>
+        </p>
+
+        <p>
+          <strong>Highest Position:</strong>
+          <%= @alumni.highest_position %>
+        </p>
+      </div>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class = "col">
+    </div>
+    <div class = "col-3 del-txt">
+      <p>Are you sure you want to remove this alumni?</p>
+    </div>
+    <div class = "col">
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-md-1 button-col">
+      <%= button_to 'Yes', @alumni, method: :delete, class: "btn btn-secondary" %>
+    </div>
+    <div class="col-md-1 button-col">
+      <%= button_to 'Back to Alumni List', alumnis_path, :method => :get, class: "btn btn-outline-secondary" %>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+<% end %>
+
+<% if current_user.is_admin == false %>
+  <h1>You do not have access to this page!</h1>
+<% end %>

@@ -1,0 +1,232 @@
+<% if current_user.UID == @user.UID %>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-4">
+  </div>
+  <div class= "card col-4">
+    <div class="card-header">
+      <p>
+        <%= @user.first_name %> <%= @user.last_name %>
+      </p>
+    </div>
+    <div class="card-body">
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+
+      <p>
+        <strong>UIN:</strong>
+        <%= @user.UID %>
+      </p>
+
+      <p>
+        <strong>Points:</strong>
+        <%= @user.points %>
+      </p>
+
+      <p>
+        <strong>Rewards Earned:</strong>
+        <%= @user.rewards_earned %>
+      </p>
+
+      <% if @user.is_admin == true %>
+        <p>
+          <strong>Is an Admin?</strong>
+          <p>Yes</p>
+        </p>
+      <% end %>
+
+      <% if @user.is_officer == true %>
+        <p>
+          <strong>Is an Officer?</strong>
+          <p>Yes</p>
+        </p>
+      <% elsif @user.officer_apply == false %>
+        <p>
+        <%= button_to 'Apply To Be An Officer', applyOfficer_user_path(@user), :method => :get, class: "btn btn-outline-secondary" %>
+        </p>
+      <% end %>
+      <p>
+      <%= button_to 'Change Password', edit_user_path(@user), :method => :get, class: "btn btn-outline-secondary" %>
+      <br>
+      <%= button_to 'Logout', logout_path, :method => :delete, class: "btn btn-outline-secondary" %>
+      </p>
+    </div>
+  </div>
+  <div class="col-4">
+  </div>
+</div>
+<% end %>
+<br>
+
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class="col-3">
+    <h1>FAQ</h1>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-4">
+  </div>
+  <div class= "card col-4">
+    <div class="card-header">
+      <p>What can I do in the About page?</p>
+    </div>
+    <div class="card-body">
+      <% if current_user.is_admin == false %>
+        <p><strong>Where do I find the page?</strong></p>
+        <p>Click on the MEGSO Logo on the top left of the navigation bar or click the About tab.</p>
+      <% else %>
+        <p><strong>Where do I find the page?</strong></p>
+        <p>Click on the MEGSO Logo on the top left of the navigation bar.</p>
+      <% end %>
+      <p><strong>Where do I find an email of an officer?</strong></p>
+      <p>Emails are listed below the name of each officer.</p>
+    </div>
+  </div>
+  <div class="col-4">
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-4">
+  </div>
+  <div class= "card col-4">
+    <div class="card-header">
+      <p>What can I do in the Events page?</p>
+    </div>
+    <div class="card-body">
+      <p><strong>How do I register for an event I attended?</strong></p>
+      <p>Click the Register button, which should direct you to an event verification page. This is where you will insert the event verification code that you were given at the event you had attended. If you type the code wrong, you will get an incorrect code message and be redirected back to the events page. If you type the correct code, you will receive a successful message and be redirected back to the events page. The points of the event will be automatically updated to your point total, which is viewable on the Rewards page.</p>
+      <% if current_user.is_admin == false %>
+        <p><strong>How do I view an event?</strong></p>
+        <p>Click the name of the event on the left-hand side of the event row. This should show you information about the event that was displayed in row on the events page, in addition to the event description.</p>
+      <% else %>
+        <p><strong>How do I view an event?</strong></p>
+        <p>Click the name of the event on the left-hand side of the event row. This should show you information about the event that was displayed in row on the events page, in addition to the event description and attendee list. The attendee list contains the first names of the students that registed for the event.</p>
+        <p><strong>How do I create an event?</strong></p>
+        <p>Click the New Event button at the top of the page and add the necessary details for the event. Once you click the Create Event button, the event information will be saved and added to the events table.</p>
+        <p><strong>How do I edit an event?</strong></p>
+        <p>There are two ways to edit an event. The first method is to click the Edit button on the events table on the row the event you want to edit is on. This should take you to a form that you can use to update the event information. The second method is to click on the name of the event on the left-hand side, which should take you to a page to see more details for the event. At the bottom of the page, there will be an Edit button.</p>
+        <p><strong>How do I delete an event?</strong></p>
+        <p>Click the Delete button on the row of the event you want to delete. This will take you to a delete confirmation page, in which you will have to confirm if you want to delete the event or not.</p>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-4">
+  </div>
+</div>
+
+<% if @user.is_admin == true %>
+  <br>
+
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class= "card col-4">
+      <div class="card-header">
+        <p>What can I do in the Alumni page?</p>
+      </div>
+      <div class="card-body">
+        <p><strong>How do I add an alumni?</strong></p>
+        <p>Click the Add Alumni button at the top of the page, which should take you to a form where you can add information on the alumni you want to add into the table. Once you click Create Alumni, the alumni information you inputted will get added to the table.</p>
+        <p><strong>How do I edit alumni information?</strong></p>
+        <p>Click the Edit button on the row of the alumni you want to edit information on. This should take you to a form where you can update the information of the alumni.</p>
+        <p><strong>How do I delete an alumni?</strong></p>
+        <p>Click the Delete button on the row of the alumni you want to delete, which should take you to a delete confirmation page. You will have to confirm that you want to delete that alumni.</p>
+        <p><strong>How do I view the LinkedIn of an alumni?</strong></p>
+        <p>If an alumni has a LinkedIn displayed in the table, you can click the link, which should take you to the LinkedIn account of that alumni.</p>
+      </div>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+<% end %>
+
+<br>
+
+<div class="row">
+  <div class="col-4">
+  </div>
+  <div class= "card col-4">
+    <div class="card-header">
+      <p>What can I do in the Rewards page?</p>
+    </div>
+    <div class="card-body">
+      <p><strong>How can I redeem a reward?</strong></p>
+      <p>Click the Redeem button on the row of the reward you want to redeem, which will take you to a confirmation page for you to confirm the redeeming of the reward. If you do not have enough points, you will not be able to redeem the reward. You will receive a message that states that you do not have enough points. Your points will automatically be subtracted. If your redeem of the reward is not approved by an officer, you will get your points back.</p>
+      <% if @user.is_admin == true %>
+        <p><strong>How can I create a reward?</strong></p>
+        <p>Click the New Reward button at the top of the page, which should take you to a form that you can fill with the reward information. Once you click the Create Reward button, the reward will be added to the rewards table. You cannot create a reward with the same name of a reward that already exists in the table.</p>
+        <p><strong>How can I edit a reward?</strong></p>
+        <p>Click the Edit button on the row of the reward you want to edit. This should take you to a form where you can update the reward information.</p>
+        <p><strong>How can I delete a reward?</strong></p>
+        <p>Click the delete button on the row of the reward you want to redeem, which will take you to a confirmation page. You will need to confirm that you want to delete that reward.</p>
+        <p><strong>How can I approve/disapprove a reward?</strong></p>
+        <p>In the AWAITING CONFIRMATION list, you will see all the rewards that have been redeemed. To approve a reward to acknowledge that the reward was given to the student, click the Confirm button. To disapprove a reward (e.g. you cannot give that reward because it ran out), click the Delete button. This should automatically give points back to the student.</p>
+      <% end %>
+      <p><strong>How do I know if a reward is approved?</strong></p>
+      <p>In the YOUR REWARDS list, any reward that is pending approval will have the status of Pending. If the reward was approved, that status will be changed to Earned. If, for some reason, the redeem reqest is disapproved, the reward will be removed from the list.</p>
+    </div>
+  </div>
+  <div class="col-4">
+  </div>
+</div>
+
+<% if @user.is_admin == true %>
+  <br>
+
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class= "card col-4">
+      <div class="card-header">
+        <p>What can I do in the Users page?</p>
+      </div>
+      <div class="card-body">
+        <p><strong>How do I give/remove admin privileges?</strong></p>
+        <p>When creating an account, if a student checked the box asking if they were an officer, their account will appear in the OFFICERS AWAITING ADMIN PRIVILIGES list, in which you can deny or accept the admin request.</p>
+        <p><strong>How do I give a student a temporary password if they forgot their password?</strong></p>
+        <p>Click the Edit button on the row of the student you want to set the temporary password for. This should take you to a form where you can enter a new password, which you can give to the student to login with. THe student can then change the password once they login.</p>
+        <p><strong>How do I delete accounts?</strong></p>
+        <p>If you see an account of a student who is not with the organization anymore or an account of a student who is not part of the organization, you can remove their account by clicking the Delete button. This should take you to a confirmation page, where you will need to confirm that you want to delete the account of that student.</p>
+        <p><strong>How do I make a student have an officer account?</strong></p>
+        <p>In the NORMAL USERS list, you can click the Make an Officer button, which will make them an officer. Then in the OFFICERS list, you can click the Give Admin Permissions to give the officer admin privileges. This method is only recommended if you want the officer to first not have admin privileges and later on give those privileges. If you are fine with a new officer having admin privileges, you can click the Give Admin Privileges in the NORMAL USERS list, which should both make the student an officer and an admin.</p>
+      </div>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+<% end %>
+
+<br>
+
+<div class="row">
+  <div class="col-4">
+  </div>
+  <div class= "card col-4">
+    <div class="card-header">
+      <p>What can I do in the Account page?</p>
+    </div>
+    <div class="card-body">
+      <p><strong>How do I change my password?</strong></p>
+      <p>Click the Change Password button, which should take you to a page where you can update your password. You will need to confirm your new password by typing it again.</p>
+      <p><strong>How do I logout?</strong></p>
+      <p>Click the Logout button and you will be redirected to the login page.</p>
+      <p><strong>How do I delete my account?</strong></p>
+      <p>Ask an officer to delete your account. Officer contact emails can be found in the About page.</p>
+    </div>
+  </div>
+  <div class="col-4">
+  </div>
+</div>

@@ -1,0 +1,210 @@
+<p id="notice"><%= notice %></p>
+
+<% if current_user.is_admin == true %>
+
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-5">
+    <h1>Admins</h1>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+<div class="row">
+  <div class="col-10">
+    <div class = "table-responsive bdr">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">UIN</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+            <% if user.is_admin == true %>
+              <td scope="row"><%= link_to user.first_name, user, :method => :get %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.UID %></td>
+              <td>
+                <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
+                    <%= button_to 'Edit', edit_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
+                    <%= button_to 'Delete', delete_user_path(user), :method => :get, class: "btn btn-secondary btn-circle"%>
+                    <%= button_to 'Remove Admin', unmake_admin_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
+                </div>
+              </td>
+            <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-5">
+    <h1>Officers Awaiting Admin Privileges</h1>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-10">
+    <div class = "table-responsive bdr">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">UIN</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+            <% if user.officer_apply == true && user.is_admin == false %>
+              <td scope="row"><%= link_to user.first_name, user, :method => :get %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.UID %></td>
+              <td>
+                <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
+                  <%= button_to 'Accept Officer Request', make_officer_user_path(user), :method => :get, class: "btn btn-secondary btn-circle" %>
+                  <%= button_to 'Deny Officer/Admin Request', unmake_Officer_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
+              </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-5">
+    <h1>Normal Users</h1>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-10">
+    <div class = "table-responsive bdr">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">UIN</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+            <% if user.is_admin == false %>
+              <td scope="row"><%= link_to user.first_name, user, :method => :get %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.UID %></td>
+              <td>
+                <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
+                  <%= button_to 'Edit', edit_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
+                  <%= button_to 'Delete', delete_user_path(user), :method => :get, class: "btn btn-secondary btn-circle" %>
+                  <% if user.is_officer == false %>
+                    <%= button_to 'Make an Officer', make_officer_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
+                  <% end %>
+                  <%= button_to 'Give Admin Permissions', make_admin_path(user), :method => :get, class: "btn btn-secondary btn-circle" %>
+                </div>
+              </td>
+            <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-5">
+    <h1>Officers</h1>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-10">
+    <div class = "table-responsive bdr">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">UIN</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+            <% if user.is_officer == true %>
+              <td scope="row"><%= link_to user.first_name, user, :method => :get %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.UID %></td>
+              <td>
+                <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
+                  <%= button_to 'Edit', edit_user_path(user), :method => :get, class: "btn btn-secondary btn-circle" %>
+                  <%= button_to 'Unmake an Officer', unmake_Officer_user_path(user), :method => :get, class: "btn btn-outline-secondary btn-circle" %>
+                  <% if user.is_admin == false %>
+                    <%= button_to 'Give Admin Permissions', make_admin_path(user), :method => :get, class: "btn btn-secondary btn-circle" %>
+                  <% end %>
+                </div>
+              </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<% end %>
+<br>
+<br>
+<% if current_user.is_admin == false %>
+  <h1>You do not have access to this page!</h1>
+<% end %>

@@ -1,0 +1,114 @@
+<%= form_with(model: user) do |form| %>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="form-group border border-secondary rounded col-md-3">
+        <div class="field">
+          <%= form.label :first_name, "First Name" %>
+          <p><%= user.first_name %></p>
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="form-group border border-secondary rounded col-md-3">
+        <div class="field">
+          <%= form.label :last_name, "Last Name" %>
+          <p><%= user.last_name %></p>
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="form-group border border-secondary rounded col-md-3">
+        <div class="field">
+          <%= form.label :email, "Email" %>
+          <p><%= user.email %></p>
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="form-group  border border-secondary rounded col-md-3">
+        <div class="field">
+          <%= form.label :UID, "UIN" %>
+          <p><%= user.UID %></p>
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="form-group border border-secondary rounded col-md-3">
+        <div class="field">
+          <%= form.label :points, "Points: " %>
+          <p><%= user.points %></p>
+        </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+      <div class="form-group border border-secondary rounded col-md-3">        
+        <div class="field">
+          <%= form.label :rewards_earned, "Rewards Earned: " %>
+          <p><%= user.rewards_earned %></p>
+        </div>
+      </div>
+    </div>
+    <br>       
+    <br>
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="form-group col-md-4">
+        <div class="field">
+          <%= form.label :password, "Password" %>
+          <%= form.password_field :password, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+        <div class="field">
+          <%= form.label :password_confirmation, "Password Confirmation" %>
+          <%= form.password_field :password_confirmation, class: "form-control"%>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+
+      <div class="actions col-md-3 button-col">
+        <%= form.submit class: "btn btn-secondary"%>
+      </div>
+  <% end %>
+      <div class="actions col-md-3 button-col">
+        <%if current_user.is_admin == true%>
+          <%=button_to 'Back to User List', users_path, :method => :get, class: "btn btn-outline-secondary"%>
+        <%end%>
+        <%if current_user.is_admin == false%>
+          <%=button_to 'Back to User Page', account_user_path(id: current_user.id), :method => :get, class: "btn btn-outline-secondary"%>
+        <%end%>
+      </div>
+      <div class="col-md-3">
+      </div>
+    </div>
+  

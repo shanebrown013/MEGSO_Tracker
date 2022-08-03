@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+<br>
+<br>
+<div class="row">
+  <div class="col-4">
+  </div>
+  <div class= "card col-4">
+    <div class="card-header">
+      <p>
+        <%= @reward.reward_name %>
+      </p>
+    </div>
+
+    <div class="card-body">
+      <p>
+        <strong>Points Required:</strong>
+        <%= @reward.reward_points %>
+      </p>
+
+      <p>
+        <strong>Reward Description:</strong>
+        <br><%= @reward.reward_description %>
+      </p>
+    </div>
+  </div>
+  <div class="col-4">
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <% if current_user.is_admin == true %>
+      <div class="col-md-1 button-col">
+      <%= button_to 'Edit', edit_reward_path(@reward), :method => :get, class: "btn btn-secondary" %>
+      </div>
+
+      <div class="col-md-3 button-col">
+      <%= button_to 'Back to Reward List', rewards_path, :method => :get, class: "btn btn-outline-secondary" %>
+      </div>
+    <% end %>
+
+    <% if current_user.is_admin == false %>
+      <div class="col-md-4 button-col">
+        <%= button_to 'Back to Reward List', rewards_path, :method => :get, class: "btn btn-outline-secondary" %>
+      </div>
+    <% end %>
+    <div class="col-md-4">
+    </div>
+</div>
+

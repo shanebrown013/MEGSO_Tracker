@@ -1,0 +1,32 @@
+<% provide(:title, "Log in") %>
+<%= render '/sessions/banner' %>
+<%= yield %>
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-3">
+    <h1>Log In</h1>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+<div class="row">
+      <div class = "col">
+      </div>
+      <div class="col-6">
+        <%= form_for(:session, url: login_path) do |f| %>
+
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+
+          <%= f.submit "Log in", class: "btn btn-primary" %>
+        <% end %>
+
+        <p> <%= link_to "New User? Register here!", signup_path %></p>
+      </div>
+      <div class = "col">
+      </div>
+</div>

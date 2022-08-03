@@ -1,0 +1,57 @@
+:root {
+    --background: #944547;
+}
+
+header {
+    background: var(--background);
+    color: #fff;
+    padding-top: 1.0rem;
+    padding-bottom: 1.0rem;
+}
+
+header .header-wrapper {
+    max-width: 75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+h1 {
+    font-family: "Oswald Light", "Helvetica", Arial;
+    font-style: normal;
+    font-weight: normal;
+    color: var(--background);
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+}
+.col-6 {
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 100rem;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #D8B6A4;
+    -webkit-box-shadow: 1px 3px 9px rgba(136,120,84, 0.6);
+    -moz-box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+}
+
+.col-6 input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.col-5 h1 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.col-5 p {
+    text-align:center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+
+
+

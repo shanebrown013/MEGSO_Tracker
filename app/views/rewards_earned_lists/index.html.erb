@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rewards Earned Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reward name</th>
+      <th>Uid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rewards_earned_lists.each do |rewards_earned_list| %>
+      <tr>
+        <td><%= rewards_earned_list.reward_name %></td>
+        <td><%= rewards_earned_list.UID %></td>
+        <td><%= link_to 'Show', rewards_earned_list %></td>
+        <td><%= link_to 'Edit', edit_rewards_earned_list_path(rewards_earned_list) %></td>
+        <td><%= link_to 'Destroy', rewards_earned_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rewards Earned List', new_rewards_earned_list_path %>

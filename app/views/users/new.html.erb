@@ -1,0 +1,48 @@
+<% provide(:title, 'Sign up') %>
+<%= render '/sessions/banner' %>
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-3">
+    <h1>Sign up</h1>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+<div class="row">
+
+<div class="row">
+    <div class = "col">
+    </div>
+    <div class="col-6">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :first_name, "First Name" %>
+      <%= f.text_field :first_name, class: 'form-control' %>
+
+      <%= f.label :last_name, "Last Name" %>
+      <%= f.text_field :last_name, class: 'form-control' %>
+
+      <%= f.label :email, "Email" %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :UID, "UIN" %>
+      <%= f.text_field :UID, class: 'form-control' %>
+
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirm password" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.label :officer_apply, "Are you an officer?" %>
+      <%= f.check_box :officer_apply %>
+
+      <div></div>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+    <p> <%= link_to "Back to Login", root_path %></p>
+  </div>
+  <div class = "col">
+  </div>
+</div>

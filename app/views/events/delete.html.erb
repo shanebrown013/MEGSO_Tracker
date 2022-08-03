@@ -1,0 +1,59 @@
+<% if current_user.is_admin == true %>
+  <div class="row">
+    <div class = "col">
+    </div>
+    <div class = "col-3">
+      <h1>Delete Event</h1>
+    </div>
+    <div class = "col">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class= "card col-4">
+      <div class="card-header">
+        <p><%= @event.event_name %> </p>
+      </div>
+      <div class="card-body">
+        <p> <b>Event Location:</b> <%= @event.event_location %> </p>
+        <p> <b>Event Start Date/Time:</b> <%= @event.event_start %> </p>
+        <p> <b>Event End Date/Time:</b> <%= @event.event_end %> </p>
+      </div>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+
+
+  <br>
+  <div class="row">
+    <div class = "col">
+    </div>
+    <div class = "col-3 del-txt">
+      <p>Are you sure you want to delete this event?</p>
+    </div>
+    <div class = "col">
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-md-1 button-col">
+      <%= button_to 'Yes', @event, method: :delete, class: "btn btn-secondary"%>
+    </div>
+    <div class="col-md-1 button-col">
+      <%= button_to 'Back to Event List', events_path, :method => :get, class: "btn btn-outline-secondary" %>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+<% end %>
+
+<% if current_user.is_admin == false %>
+  <h1>You do not have access to this page!</h1>
+<% end %>

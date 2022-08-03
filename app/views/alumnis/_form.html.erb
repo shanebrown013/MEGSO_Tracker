@@ -1,0 +1,87 @@
+<%= form_with(model: alumni) do |form| %>
+  <% if alumni.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alumni.errors.count, "error") %> prohibited this alumni from being saved:</h2>
+
+      <ul>
+        <% alumni.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="form-group col-md-4">        
+      <div class="field">
+        <%= form.label :alumni_name, "Name" %>
+        <%= form.text_field :alumni_name, class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  <br>
+
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="form-group col-md-4">        
+      <div class="field">
+        <%= form.label :LinkedIn, "LinkedIn URL" %>
+        <%= form.url_field :LinkedIn, class: "form-control"%>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="form-group col-md-4">        
+      <div class="field">
+        <%= form.label :alumni_grad_year, "Graduation Year" %>
+        <%= form.number_field :alumni_grad_year, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="form-group col-md-4">        
+      <div class="field">
+        <%= form.label :highest_position, "Highest Position" %>
+        <%= form.text_field :highest_position, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+
+    <div class="actions col-md-3 button-col">
+      <%= form.submit class: "btn btn-secondary"%>
+    </div>
+
+<% end %>
+    <div class="col-md-3 button-col">
+      <%= button_to 'Back to Alumni List', alumnis_path, :method => :get, class: "btn btn-outline-secondary" %>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>

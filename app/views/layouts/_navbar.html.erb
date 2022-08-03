@@ -1,0 +1,26 @@
+<nav class="sticky-top">
+        <div class="logo">
+            <a href="<%=about_users_path%>"><%= image_tag "MegsoLogo.png" %></a>
+        </div>
+        <% if current_user.is_admin == true %>
+            <ul class="nav-links">
+                <li><a href="<%=events_path%>">Events</a></li>
+                <li><a href="<%=alumnis_path%>">Alumni</a></li>
+                <li><a href="<%=rewards_path%>">Rewards</a></li>
+                <li><a href="<%=users_path%>">Users</a></li>
+                <li><a href="<%=account_user_path(id: current_user.id)%>"><%= current_user.first_name %>'s Account</a></li>
+            </ul>
+        <% else %>
+            <ul class="nav-links">
+                <li><a href="<%=about_users_path%>">About</a></li>
+                <li><a href="<%=events_path%>">Events</a></li>
+                <li><a href="<%=rewards_path%>">Rewards</a></li>
+                <li><a href="<%=account_user_path(id: current_user.id)%>"><%= current_user.first_name %>'s Account</a></li>
+            </ul>
+        <% end %>
+        <div class="mobile-burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+</nav>

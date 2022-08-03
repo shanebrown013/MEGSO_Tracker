@@ -1,0 +1,65 @@
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-3">
+    <br>
+    <h1>Events</h1>
+    <br>
+    <p id="notice"><%= notice %></p>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+<div class="col-10">
+<% if current_user.is_admin == true %>
+  <%= button_to 'New Event', new_event_path, :method => :get, class:"btn btn-primary new-event" %>
+<% end %>
+<div class = "table-responsive bdr">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Event Name</th>
+        <th scope="col">Amount of Points</th>
+        <th scope="col">Event Location</th>
+        <th scope="col">Event Date</th>
+        <th scope="col">Start Time</th>
+        <th scope="col">End Time</th>
+        <% if current_user.is_admin == true %>
+          <th scope="col">Event Verification Code</th>
+        <% end %>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td scope="row"><%= link_to event.event_name, event, :method => :get %></td>
+        <td><%= event.event_point %></td>
+        <td><%= event.event_location %></td>
+        <td><%= event.event_date.to_time.strftime('%A, %B %d, %Y') %></td>
+        <td><%= event.event_start.to_time.strftime('%l:%M%p') %></td>
+        <td><%= event.event_end.to_time.strftime('%l:%M%p') %></td>
+        <% if current_user.is_admin == true %>
+          <td><%= event.event_verification %></td>
+        <% end %>
+        <td>
+            <div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
+            <% if current_user.is_admin == true %>
+              <%= button_to 'Edit', edit_event_path(event), :method => :get, class: "btn btn-secondary btn-circle" %>
+              <%= button_to 'Register', register_event_path(event), class: "btn btn-outline-secondary btn-circle" %>
+              <%= button_to 'Delete', delete_event_path(event), :method => :get, class: "btn btn-secondary btn-circle" %>
+            <% else %>
+              <%= button_to 'Register', register_event_path(event), class: "btn btn-secondary btn-circle" %>
+            <% end %>
+            </div>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <% if @events.exists? == false %>
+    <p style="text-align: center;">No Events Yet!</p>
+  <% end %>
+</div>
+</div>

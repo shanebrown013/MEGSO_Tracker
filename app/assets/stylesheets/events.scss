@@ -1,0 +1,90 @@
+
+
+:root {
+    --background: #944547;
+}
+
+th {
+    color: #fff;
+}
+
+table td a {
+    text-decoration:none;
+    transition: color 0.2s ease-out;
+    color:#316B90;
+}
+table td a:hover {color:darken(#316B90, 20%);}
+
+thead {
+    background-color: var(--background);
+}
+.bdr {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.col-10 {
+    text-align: center;
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 100rem;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #fff;
+    -webkit-box-shadow: 1px 3px 9px rgba(136,120,84, 0.6);
+    -moz-box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    align-items: center;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.btn-group {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.btn.btn-secondary {
+    background: var(--background);
+    border-color: var(--background);
+    color: #fff;
+}
+
+.btn-circle {
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+.form-group label {
+    text-align: center !important;
+    display: block !important;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: bold;
+}
+
+form {
+    .stime, .date, .etime {
+        text-align: center;
+    }
+    .button-col {
+        text-align: center;
+    }
+}
+
+.card .card-header p {
+    margin-top: 1rem !important;
+    color: var(--background);
+    font-weight: bold;
+    font-size: large;
+}
+
+.button-col {
+    text-align: center;
+}

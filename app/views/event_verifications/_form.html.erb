@@ -1,0 +1,33 @@
+<%= form_with(model: event_verification) do |form| %>
+  <% if event_verification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event_verification.errors.count, "error") %> prohibited this event_verification from being saved:</h2>
+
+      <ul>
+        <% event_verification.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <center><div class="field">
+    <%= form.label :event_verification %>
+    <%= form.text_field :event_verification %>
+  </div></center>
+
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+
+    <div class="actions col-md-3 button-col">
+        <%= form.submit "Confirm Registration", class: "btn btn-secondary"%>
+    </div>
+<% end %>
+
+    <div class="col-md-3 button-col">
+      <%= button_to 'Back to Event List', events_path, :method => :get, class: "btn btn-outline-secondary" %>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>

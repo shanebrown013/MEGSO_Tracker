@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<br><brt>
+<center><h1>Your MEGSO Officers<h1></center>
+
+<br><br>
+
+<div class="row">
+  <% @officers.each do |officer| %>
+    <% if officer.is_officer == true %>
+      <div class="col">
+        <div class="card">
+          <%= image_tag "OfficersProfilePhoto.png" %>
+          <h2 class="officer-name"><%= officer.first_name %></h2>
+          <h2 class="officer-name"><%= officer.last_name %></h2>
+          <p class="position"><%= officer.position %></p>
+          <p class="contact"><%= officer.email %></p>
+        </div>
+        <br>
+      </div>
+    <% end %>
+  <% end %>
+</div>

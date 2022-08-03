@@ -1,0 +1,99 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+:root {
+    --background: #944547;
+}
+
+.floating-form {
+    max-width: 100rem;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #fff;
+    -webkit-box-shadow: 1px 3px 9px rgba(136,120,84, 0.6);
+    -moz-box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    position: relative;
+    z-index: 2;
+}
+
+.floating-form .form {
+    font-size: 16px;
+    font-size: 1rem;
+    width: 100%;
+    float: left;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem;
+}
+
+h1 {
+    font-family: "Oswald Light", "Helvetica", Arial;
+    font-style: normal;
+    font-weight: normal;
+    color: var(--background);
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+}
+.col-6 {
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 100rem;
+    margin-right: auto;
+    margin-left: auto;
+    background: #fff;
+    -webkit-box-shadow: 1px 3px 9px rgba(136,120,84, 0.6);
+    -moz-box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+}
+
+.col-6 input {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.col-6 label {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+.col-3 h1 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    margin: auto;
+    text-align: center;
+}
+.position {
+    color: grey;
+    font-size: 18px;
+}
+.contact {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+}
+.officer-name {
+    color: var(--background);
+}
+.del-txt {
+    text-align: center;
+}
+
+form {
+    .form-group.border.border-secondary p{
+        text-align: center;
+    }
+
+}

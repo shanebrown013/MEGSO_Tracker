@@ -1,0 +1,191 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap/scss/bootstrap";
+/* Google Font- Open Sans*/
+
+:root {
+    --background: #944547;
+}
+/* Navbar Styling */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color:var(--background);
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo{
+    color:rgb(227, 227, 227);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 22px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.nav-links li{
+    list-style: none;
+}
+.nav-links a{
+    color: rgb(227, 227, 227);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a:focus {
+    color: rgb(68, 68, 68);
+}
+
+.mobile-burger {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-burger div {
+    width: 25px;
+    height: 2px;
+    background-color: rgb(227, 227, 227);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    color: rgb(227, 227, 227);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/*  
+    make sizing mobile friendly: 
+    -adjust nav links sizing based on screen size
+    -adjust where nav links are displayed 
+*/
+@media screen and (max-width: 1024px) {
+    .nav-links{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: var(--background);
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        width: 45%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .mobile-burger {
+        display: block;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from {
+        opacity:0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
+/* Button Styling */
+.btn.btn-primary {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    padding: 0.85em 1em;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    font-size: 0.9rem;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--background);
+    color: #fff;
+    font-weight: bold;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 16px;
+    font-size: 1rem;
+    border-radius: 1.75rem;
+}
+
+.col-6 p a {
+    text-decoration:none;
+    transition: color 0.2s ease-out;
+    color: #316B90;
+}
+
+.col-6 p a:hover {color:darken(#316B90, 20%);}
+
+body {
+    background-color: #ECF1EB;
+}
+
+a {
+    color:#316B90;
+}

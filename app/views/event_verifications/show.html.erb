@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event verification:</strong>
+  <%= @event_verification.event_verification %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @event_verification.event_id %>
+</p>
+
+<%= link_to 'Edit', edit_event_verification_path(@event_verification) %> |
+<%= link_to 'Back', event_verifications_path %>

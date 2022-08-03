@@ -1,0 +1,2 @@
+module RewardsEarnedListsHelper
+end

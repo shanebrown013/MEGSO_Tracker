@@ -1,0 +1,60 @@
+<%= form_with(model: reward) do |form| %>
+  <% if reward.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reward.errors.count, "error") %> prohibited this reward from being saved:</h2>
+
+      <ul>
+        <% reward.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="form-group col-md-4">        
+      <div class="field">
+        <%= form.label :reward_name, "Reward Name" %>
+        <%= form.text_field :reward_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group col-md-4">         
+      <div class="field">
+        <%= form.label :reward_points, "Points Required" %>
+        <%= form.number_field :reward_points, class: "form-control" %>
+      </div>
+    </div>
+  <div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="form-group col-md-4">
+      <div class="field">
+        <%= form.label :reward_description, "Reward Description" %>
+        <%= form.text_area :reward_description, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  <br>
+  <br>
+  
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+
+    <div class="actions col-md-3 button-col">
+      <%= form.submit class: "btn btn-secondary"%>
+    </div>
+
+<% end %>
+    <div class="col-md-3 button-col">
+      <%= button_to 'Back to Reward List', rewards_path, :method => :get, class: "btn btn-outline-secondary" %>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>

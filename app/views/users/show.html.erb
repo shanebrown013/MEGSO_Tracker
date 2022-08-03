@@ -1,0 +1,105 @@
+<% if current_user.is_admin == true %>
+  <p id="notice"><%= notice %></p>
+
+
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class= "card col-4">
+      <div class="card-header">
+        <p>
+          <%= @user.first_name %> <%= @user.last_name %>
+        </p>
+      </div>
+      <div class="card-body">
+        <p>
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </p>
+
+        <p>
+          <strong>UIN:</strong>
+          <%= @user.UID %>
+        </p>
+
+        <p>
+          <strong>Points:</strong>
+          <%= @user.points %>
+        </p>
+
+        <% if @user.is_admin == true %>
+          <p>
+            <strong>Is an Admin?</strong>
+            <p>Yes</p>
+          </p>
+        <% else %>
+          <p>
+            <strong>Is an Admin?</strong>
+            <p>No</p>
+          </p>
+        <% end %>
+
+        <% if @user.is_officer == true %>
+          <p>
+            <strong>Is an Officer?</strong>
+            <p>Yes</p>
+          </p>
+        <% else %>
+          <p>
+            <strong>Is an Officer?</strong>
+            <p>No</p>
+          </p>
+        <% end %>
+
+        <p>
+          <strong>Position in Org:</strong>
+          <%= @user.position %>
+        </p>
+      </div>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+
+  <br>
+
+  <div class = "col-6">
+    <div class = "table-responsive bdr">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Earned Rewards:</th>
+            <th scope="col">Time Approved:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @earned_rewards.each do |earned_reward| %>
+            <tr>
+              <td scope="row"><%= earned_reward.reward_name %></td>
+              <td><%= earned_reward.created_at %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3 button-col">
+    <%= button_to 'Edit', edit_user_path(@user), :method => :get, class: "btn btn-outline-secondary" %>
+    </div>
+    <div class="col-md-3 button-col">
+      <%= button_to 'Back to Users List', users_path, :method => :get, class: "btn btn-secondary" %>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+<% end %>
+
+<% if current_user.is_admin == false %>
+  <h1>You do not have access to this page!</h1>
+<% end %>
+

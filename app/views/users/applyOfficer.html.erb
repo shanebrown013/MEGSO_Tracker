@@ -1,0 +1,41 @@
+<% if current_user.UID == @apply_officer.UID %>
+  <br>
+  <div class="row">
+    <div class = "col">
+    </div>
+    <div class = "col-3">
+      <h1>Officer Application</h1>
+    </div>
+    <div class = "col">
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class = "col">
+    </div>
+    <div class = "col-4 del-txt">
+      <p>Are you sure you want to apply to be an officer?</p>
+    </div>
+    <div class = "col">
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-2 button-col">
+      <%= button_to 'Yes', acceptOfficer_user_path(current_user), :method => :get, class: "btn btn-secondary" %>
+    </div>
+    <div class="col-md-2 button-col">
+      <%= button_to 'Back to my Account', account_user_path(id: current_user.id), :method => :get, class: "btn btn-outline-secondary"%>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+<% end %>
+
+<% if current_user.UID != @apply_officer.UID %>
+  <h1>You do not have access to this page!</h1>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Event Verifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event verification</th>
+      <th>Event</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_verifications.each do |event_verification| %>
+      <tr>
+        <td><%= event_verification.event_verification %></td>
+        <td><%= event_verification.event_id %></td>
+        <td><%= link_to 'Show', event_verification %></td>
+        <td><%= link_to 'Edit', edit_event_verification_path(event_verification) %></td>
+        <td><%= link_to 'Destroy', event_verification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event Verification', new_event_verification_path %>

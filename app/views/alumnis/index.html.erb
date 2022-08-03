@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<% if current_user == nil%>
+	<% controller.redirect_to root_path %>
+<% elsif current_user.is_admin == true %>
+	<div class="row">
+	  <div class = "col">
+	  </div>
+	  <div class = "col-3">
+	    <h1>Alumnis</h1>
+	  </div>
+	  <div class = "col">
+	  </div>
+	</div>
+	<div class="col-10">
+	<%= button_to 'Add Alumni', new_alumni_path, :method => :get,class:"btn btn-primary new-alumni" %>
+	<div class = "table-responsive bdr">
+	  <table class="table table-hover">
+	    <thead>
+	      <tr>
+		  	<th scope="col">Name</th>
+			<th scope="col">LinkedIn URL</th>
+			<th scope="col">Graduation Year</th>
+			<th scope="col">Highest MEGSO Position</th>
+			<th scope="col">Actions</th>
+	      </tr>
+	    </thead>
+
+	  <tbody>
+	    <% @alumnis.each do |alumni| %>
+	      <tr>
+		  <td><%= alumni.alumni_name %></td>
+			<td><%= link_to alumni.LinkedIn, alumni.LinkedIn %></td>
+			<td><%= alumni.alumni_grad_year %></td>
+			<td><%= alumni.highest_position %></td>
+			<td>
+			<div class="btn-group btn-group-xs mb-2 mb-md-0 btn-block">
+				<%= button_to 'Show', alumni, :method => :get, class: "btn btn-secondary btn-circle"%>
+				<%= button_to 'Edit', edit_alumni_path(alumni), :method => :get, class: "btn btn-outline-secondary btn-circle"%>
+				<%= button_to 'Delete', delete_alumni_path(alumni), :method => :get, class: "btn btn-secondary btn-circle"%>
+			</div>
+			</td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+
+<% elsif current_user.is_admin == false %>
+  <h1>You do not have access to this page!</h1>
+<% end %>
+</div>

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-3">
+    <h1>Redeem Reward</h1>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+  </div>
+  <div class= "card col-4">
+    <div class="card-header">
+      <p> <%= @reward.reward_name %> </p>
+    </div>  
+    <div class="card-body">
+      <p> <b>Points Required:</b> <%= @reward.reward_points %> </p>
+    </div>
+  </div>
+  <div class="col-4">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class = "col">
+  </div>
+  <div class = "col-3 del-txt">
+    <p>Are you sure you want to redeem this reward?</p>
+  </div>
+  <div class = "col">
+  </div>
+</div>
+
+<br>
+<div class="row">
+  <div class="col">
+  </div>
+  <div class="col-md-1 button-col">
+    <%= button_to 'Yes', accept_reward_path(@reward), :method => :get, class: "btn btn-secondary"%>
+  </div>
+  <div class="col-md-1 button-col">
+  <%= button_to 'Back to Reward List', rewards_path, :method => :get, class: "btn btn-outline-secondary" %>
+  </div>
+  <div class="col">
+  </div>
+</div>

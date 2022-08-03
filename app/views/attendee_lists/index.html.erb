@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Attendee Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attendee List ID</th>
+      <th>UID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attendee_lists.each do |attendee_list| %>
+      <tr>
+        <td><%= attendee_list.attendee_list_id %></td>
+        <td><%= attendee_list.UID %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

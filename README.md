@@ -1,4 +1,4 @@
-# MEGSO_Tracker
+# README
 
 ## Introduction ##
 
@@ -99,3 +99,4 @@ For continuous integration, we set up a Github action via workflows to run our s
 
 Admins looking for support should first look at the application help page.
 Users looking for help seek out assistance from the customer.
+
